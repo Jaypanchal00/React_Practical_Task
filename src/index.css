@@ -153,6 +153,89 @@ button:focus-visible {
   border-color: #d1d5db;
 }
 
+/* User Dropdown */
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.user-icon-trigger {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s;
+  display: block;
+}
+
+.user-dropdown:hover .user-icon-trigger {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  min-width: 200px;
+  display: none;
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.user-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-username {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: #f9fafb;
+}
+
+.dropdown-logout {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: #ef4444;
+  /* Red color for logout */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-logout:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Grid Layout for Products */
 .grid {
   display: grid;

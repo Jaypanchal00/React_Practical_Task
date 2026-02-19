@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../features/auth/authSlice";
 
 export default function Navbar() {
-  const { token } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
   const { items } = useSelector((state) => state.cart);
   const cartCount = items.length;
   const dispatch = useDispatch();
@@ -20,9 +20,15 @@ export default function Navbar() {
           {!token ? (
             <Link to="/login" className="nav-link btn-login">Login</Link>
           ) : (
-            <button className="btn-logout" onClick={() => dispatch(logout())}>
-              Logout
-            </button>
+            <div className="user-dropdown">
+              <span className="user-icon-trigger"><i className="bi bi-person"></i></span>
+              <div className="dropdown-menu">
+                <span className="dropdown-username">Hello, {user?.username}</span>
+                <button className="dropdown-logout" onClick={() => dispatch(logout())}>
+                  Logout
+                </button>
+              </div>
+            </div>
           )}
         </div>
       </div>
