@@ -86,12 +86,10 @@ export default function Checkout() {
               <input type="radio" name="payment" defaultChecked /> 
               <span>Cash on Delivery (COD)</span>
             </label>
-            {/* Hidden submit button to allow form submission on Enter */}
             <button type="submit" style={{ display: "none" }}></button>
           </form>
         </div>
-
-        {/* Right Column: Order Summary */}
+        
         <div style={{ background: "white", padding: "2rem", borderRadius: "12px", border: "1px solid #e5e7eb", position: "sticky", top: "100px" }}>
           <h3 style={{ marginTop: 0 }}>Order Summary</h3>
           

@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { loginUserAPI } from "./authAPI";
 
-// 🔹 LocalStorage માંથી token અને user load કરો
+//  Load token and user from LocalStorage
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
 
-// 🔹 Async Thunk for Login
+//  Async Thunk for Login
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (credentials, { rejectWithValue }) => {
@@ -44,20 +44,20 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // 🔄 Pending
+      //  Pending
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
 
-      // ✅ Success
+      //  Success
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         state.token = action.payload.accessToken || action.payload.token;
         state.user = action.payload;
         state.error = null;
 
-        // 🔐 Save to localStorage
+        //  Save to localStorage
         localStorage.setItem("token", action.payload.accessToken || action.payload.token);
         localStorage.setItem(
           "user",
@@ -65,7 +65,7 @@ const authSlice = createSlice({
         );
       })
 
-      // ❌ Failed
+      //  Failed
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
