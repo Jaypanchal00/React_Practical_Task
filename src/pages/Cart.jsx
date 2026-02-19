@@ -22,12 +22,16 @@ export default function Cart() {
       ) : (
         <div className="grid">
              {items.map((item, index) => (
-                <div key={`${item.id}-${index}`} className="card">
+                <div 
+                  key={`${item.id}-${index}`} 
+                  className="card"
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
                      <div className="card-image-container">
                         <img src={item.thumbnail} alt={item.title} />
                      </div>
                      <h4>{item.title}</h4>
-                     <p>${item.price}</p>
+                     <p>₹{item.price}</p>
                      
                      <div style={{ display: "flex", alignItems: "center", gap: "10px", margin: "10px 0" }}>
                         <button 
@@ -59,7 +63,7 @@ export default function Cart() {
 
       {items.length > 0 && (
         <div style={{ marginTop: "2rem", textAlign: "right", borderTop: "1px solid #eee", paddingTop: "1rem" }}>
-          <h3>Subtotal: ${total.toFixed(2)}</h3>
+          <h3>Subtotal: ₹{total.toFixed(2)}</h3>
           <button 
             onClick={() => navigate("/checkout")}
             style={{ fontSize: "1.1rem", padding: "0.8rem 1.5rem" }}

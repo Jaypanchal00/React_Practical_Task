@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, index }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
@@ -26,12 +26,15 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="card">
+    <div 
+      className="card" 
+      style={{ animationDelay: `${index * 0.05}s` }}
+    >
       <div className="card-image-container">
         <img src={product.thumbnail} alt={product.title} />
       </div>
       <h4>{product.title}</h4>
-      <p>${product.price}</p>
+      <p>₹{product.price}</p>
       <button onClick={handleAddToCart}>
         Add to Cart
       </button>

@@ -43,8 +43,8 @@ export default function Home() {
       </div>
 
       <div className="grid">
-        {items.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {items.map((product, index) => (
+          <ProductCard key={product.id} product={product} index={index} />
         ))}
       </div>
 

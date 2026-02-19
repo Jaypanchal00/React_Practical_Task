@@ -99,7 +99,7 @@ export default function Checkout() {
                  <img src={item.thumbnail} alt={item.title} style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "4px", background: "#f3f4f6" }} />
                  <div>
                    <p style={{ margin: 0, fontSize: "0.9rem", fontWeight: "600" }}>{item.title}</p>
-                   <p style={{ margin: 0, color: "#6b7280", fontSize: "0.85rem" }}>${item.price}</p>
+                   <p style={{ margin: 0, color: "#6b7280", fontSize: "0.85rem" }}>₹{item.price}</p>
                  </div>
               </div>
             ))}
@@ -108,7 +108,7 @@ export default function Checkout() {
           <div style={{ borderTop: "2px solid #f3f4f6", paddingTop: "1rem", marginTop: "auto" }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
               <span>Subtotal</span>
-              <span>${total.toFixed(2)}</span>
+              <span>₹{total.toFixed(2)}</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
               <span>Shipping</span>
@@ -116,7 +116,7 @@ export default function Checkout() {
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "1.25rem", fontWeight: "bold", marginTop: "1rem", color: "#111827" }}>
               <span>Total</span>
-              <span>${total.toFixed(2)}</span>
+              <span>₹{total.toFixed(2)}</span>
             </div>
           </div>
 
